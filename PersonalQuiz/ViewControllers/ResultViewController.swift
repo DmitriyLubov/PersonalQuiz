@@ -14,11 +14,18 @@ class ResultViewController: UIViewController {
     // 3. Определить наиболее часто встречающийся тип животного
     // 4. Отобразить результаты в соответствии с этим животным
     
+    @IBOutlet var animalLabel: UILabel!
+    @IBOutlet var definitionLabel: UILabel!
+    
     var answersChosen: [Answer]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard let animal = getPopularAnimal() else { return }
+        
+        animalLabel.text = "Вы - \(animal.rawValue)"
+        definitionLabel.text = animal.definition
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
