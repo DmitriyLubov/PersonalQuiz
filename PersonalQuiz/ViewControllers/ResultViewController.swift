@@ -43,8 +43,4 @@ class ResultViewController: UIViewController {
         
         return animal
     }
-    
-    deinit {
-        print("\(type(of: self)) has been deallocated")
-    }
 }

@@ -71,12 +71,7 @@ class QuestionViewController: UIViewController {
         let index = lrintf(rangedSlider.value)
         answersChosen.append(currentAnswers[index])
         nextQuestion()
-    }
-    
-    deinit {
-        print("\(type(of: self)) has been deallocated")
-    }
-    
+    }  
 }
 
 // MARK: - Private Methods
