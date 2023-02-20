@@ -13,10 +13,12 @@ class ResultViewController: UIViewController {
     // 2. Передать массив с ответами на экран с результатами
     // 3. Определить наиболее часто встречающийся тип животного
     // 4. Отобразить результаты в соответствии с этим животным
+    
+    var answersChosen: [Answer]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
