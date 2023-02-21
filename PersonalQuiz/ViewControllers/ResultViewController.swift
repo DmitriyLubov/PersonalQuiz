@@ -28,7 +28,7 @@ class ResultViewController: UIViewController {
 
 // MARK: - Private Methods
 private extension ResultViewController {
-    private func getPopularAnimal() -> Animal? {
+    func getPopularAnimal() -> Animal? {
         let animals = answersChosen.map { $0.animal }
         var countAnimals: [Animal: Int] = [:]
         
@@ -40,7 +40,7 @@ private extension ResultViewController {
         return animal
     }
     
-    private func updateLabel() {
+    func updateLabel() {
         guard let animal = getPopularAnimal() else { return }
         
         animalLabel.text = "Вы - \(animal.rawValue)"
