@@ -9,11 +9,6 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    // 1. Избавиться от кнопки возврата назад на экране результатов
-    // 2. Передать массив с ответами на экран с результатами
-    // 3. Определить наиболее часто встречающийся тип животного
-    // 4. Отобразить результаты в соответствии с этим животным
-    
     @IBOutlet var animalLabel: UILabel!
     @IBOutlet var definitionLabel: UILabel!
     
@@ -22,16 +17,17 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let animal = getPopularAnimal() else { return }
-        
-        animalLabel.text = "Вы - \(animal.rawValue)"
-        definitionLabel.text = animal.definition
+        navigationItem.hidesBackButton.toggle()
+        updateLabel()
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func doneButtonPressed() {
         dismiss(animated: true)
     }
-    
+}
+
+// MARK: - Private Methods
+private extension ResultViewController {
     private func getPopularAnimal() -> Animal? {
         let animals = answersChosen.map { $0.animal }
         var countAnimals: [Animal: Int] = [:]
@@ -42,5 +38,12 @@ class ResultViewController: UIViewController {
         let animal = countAnimals.sorted { $0.1 > $1.1 }.first?.key
         
         return animal
+    }
+    
+    private func updateLabel() {
+        guard let animal = getPopularAnimal() else { return }
+        
+        animalLabel.text = "Вы - \(animal.rawValue)"
+        definitionLabel.text = animal.definition
     }
 }

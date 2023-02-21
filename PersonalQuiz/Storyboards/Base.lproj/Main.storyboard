@@ -326,7 +326,7 @@
                     <navigationItem key="navigationItem" title="Результат" id="6Aa-8C-AYu">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="WsX-6E-G2o">
                             <connections>
-                                <action selector="doneButtonPressed:" destination="LiX-kO-U2P" id="lzA-IC-TAP"/>
+                                <action selector="doneButtonPressed" destination="LiX-kO-U2P" id="JLK-62-Iw1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
